@@ -1,0 +1,427 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', cursive;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+}
+
+/* 🎬 Intro */
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeOut 3s forwards;
+    z-index: 10;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* 🌌 Stars */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: moveStars 50s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveStars {
+    to { background-position: 1000px 1000px; }
+}
+
+/* 📦 Sections */
+section {
+    padding: 30px 20px;
+    margin: 0 auto;
+    max-width: 900px;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 1s;
+    position: relative;
+}
+
+section h1 {
+    margin-bottom: 10px;
+}
+
+section p {
+    margin-bottom: 20px;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🌸 Section glow */
+section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255,111,145,0.1), transparent);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+section:hover::after {
+    opacity: 1;
+}
+
+/* 🔘 Buttons */
+button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    background: #ff6f91;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+/* 🔥 FIX: Make sure clicks work properly */
+.envelope,
+button {
+    position: relative;
+    z-index: 5;
+}
+
+/* 🔥 FIX: Flash should not block clicks */
+.flash {
+    pointer-events: none;
+}
+
+/* 🔥 FIX: Section glow should not block clicks */
+section::after {
+    pointer-events: none;
+}
+
+/* 🔥 FIX: Letter above everything */
+.letter-box {
+    z-index: 10;
+}
+
+/* 🔥 FIX: Envelope animation visibility */
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 2;
+}
+
+/* 🔥 FIX: Surprise message always visible */
+#surprise.show {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* 🔥 FIX: Modal should be top */
+.image-modal {
+    z-index: 9999;
+}
+
+/* 🔥 FIX: Birthday text on top */
+.fall,
+.balloon {
+    z-index: 999;
+}
+
+/* 🔥 OPTIONAL: smoother animation feel */
+* {
+    box-sizing: border-box;
+}
+
+/* 🎵 Music button */
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+/* 📸 Images */
+img {
+    width: 250px;
+    border-radius: 15px;
+    margin-top: 20px;
+    transition: 0.4s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* 📸 MEMORY GRID (FIXED CLEAN VERSION) */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 10px;
+}
+
+.memory-grid img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    background: white;
+    padding: 8px;
+    border: 10px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+/* ✨ Hover glow */
+.memory-grid img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(255, 111, 145, 0.8);
+}
+
+/* 🎀 Slight rotation */
+.memory-grid img:nth-child(odd) {
+    transform: rotate(-1.5deg);
+}
+
+.memory-grid img:nth-child(even) {
+    transform: rotate(1.5deg);
+}
+
+/* 💖 Floating Hearts */
+.heart {
+    position: fixed;
+    color: pink;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* 🎉 Confetti */
+.confetti {
+    display: none;
+    font-size: 30px;
+}
+
+/* ✉️ Envelope */
+.envelope {
+    width: 250px;
+    height: 150px;
+    background: #ff6f91;
+    margin: 40px auto;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+.envelope .flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff3e6c;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transition: 0.8s;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+/* 📜 Letter Box */
+.letter-box {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 40px;
+    background: #fdf6e3;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+    display: none;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.8s;
+    position: relative;
+}
+
+.letter-box.show {
+    display: block;
+    transform: scaleY(1);
+}
+
+/* 🧾 Paper texture */
+.letter-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    opacity: 0.4;
+    border-radius: 10px;
+}
+
+/* ✉️ Fold top */
+.letter-box::after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 40px;
+    background: #fdf6e3;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* 🖊️ Typed text */
+#typedText {
+    position: relative;
+    font-family: 'Georgia', serif;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+/* ✨ Cursor */
+#typedText::after {
+    content: "|";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* 🌈 Glow headings */
+.glow {
+    background: linear-gradient(45deg, #ff6f91, #ffd6e0, #ffffff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: glowText 3s infinite alternate;
+}
+
+@keyframes glowText {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.5); }
+}
+
+/* 🔝 Progress bar */
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: #ff6f91;
+    width: 0%;
+    z-index: 100;
+}
+
+/* 💫 Particles */
+.particles::before {
+    content: "✨ ✨ ✨ ✨ ✨ ✨ ✨";
+    position: fixed;
+    width: 100%;
+    animation: floatParticles 20s linear infinite;
+    opacity: 0.2;
+}
+
+@keyframes floatParticles {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-100vh); }
+}
+
+/* 📸 Zoom modal */
+.image-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.image-modal img {
+    width: 70%;
+    border-radius: 10px;
+}
+
+/* 🌊 Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+/* 💥 Flash effect */
+.flash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    opacity: 0;
+    z-index: 999;
+}
+
+.flash.show {
+    animation: flashAnim 0.5s;
+}
+
+@keyframes flashAnim {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+/* 💌 Surprise text */
+#surprise {
+    font-size: 22px;
+    margin-top: 20px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: 0.5s;
+}
+
+#surprise.show {
+    opacity: 1;
+    transform: scale(1);
+}
+/* 🎊 Falling emojis */
+.fall {
+    position: fixed;
+    top: -20px;
+    font-size: 25px;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* 🎈 Balloons */
+.balloon {
+    position: fixed;
+    bottom: -50px;
+    font-size: 30px;
+    animation: rise 4s linear forwards;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}

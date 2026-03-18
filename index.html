@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Journey 💙</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- 🔝 Scroll Progress -->
+<div id="progressBar"></div>
+
+<!-- 🎬 Intro -->
+<div id="intro">
+  <h1>For Someone Special 💙</h1>
+</div>
+
+<!-- 🌌 Stars -->
+<div class="stars"></div>
+
+<!-- 💫 Floating particles -->
+<div class="particles"></div>
+
+<!-- 🎵 Music -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ✅ ADDED: Music Button -->
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<!-- 💖 Opening -->
+<section class="show">
+    <h1 class="glow">This is not just a website...</h1>
+    <h2 class="fade delay">It’s our journey 💫</h2>
+    <button onclick="scrollToNext()">Start</button>
+</section>
+
+<!-- 🌱 -->
+<section>
+    <h1 class="glow">Where it all began 🌱</h1>
+    <p>From strangers to something so special...</p>
+    <img src="images/photo1.jpg">
+</section>
+
+<!-- 😂 -->
+<section>
+    <h1 class="glow">Our Funny Moments 😂</h1>
+    <p>We laughed at things no one else would understand.</p>
+    <img src="images/photo6.jpg">
+</section>
+
+<!-- 📸 MEMORY BOOK -->
+<section>
+    <h1 class="glow">Our Memory Book 📖</h1>
+
+    <div class="memory-grid">
+        <img src="images/photo11.jpg">
+        <img src="images/photo2.jpg">
+        <img src="images/photo3.jpg">
+        <img src="images/photo4.jpg">
+        <img src="images/photo5.jpg">
+        <img src="images/photo12.jpg">
+        <img src="images/photo7.jpg">
+        <img src="images/photo8.jpg">
+        <img src="images/photo9.jpg">
+        <img src="images/photo10.jpg">
+        <img src="images/photo13.jpg">
+        <img src="images/photo14.jpg">
+        <img src="images/photo15.jpg">
+        <img src="images/photo16.jpg">
+        <img src="images/photo17.jpg">
+        
+    </div>
+</section>
+
+<!-- 💌 LETTER -->
+<section>
+    <h1 class="glow">A Letter For You 💌</h1>
+
+    <!-- ✅ Envelope clickable -->
+    <div class="envelope" onclick="openEnvelope()" role="button">
+        <div class="flap"></div>
+        <div class="body">💌 Click to Open</div>
+    </div>
+
+    <!-- ✅ Removed hidden issue (fixed) -->
+    <div class="letter-box" id="letterBox">
+        <p id="typedText"></p>
+    </div>
+</section>
+
+<!-- 🎁 -->
+<section>
+    <h1 class="glow">Click for a Surprise 🎁</h1>
+    <button onclick="showSurprise()">Click Me</button>
+    <p id="surprise"></p>
+</section>
+
+<!-- 🎉 -->
+<section>
+    <h1 class="glow">Happy Birthday ❤️</h1>
+    <button onclick="celebrate()">Celebrate 🎉</button>
+
+    <!-- (kept as you had it, even if optional) -->
+    <div class="confetti" id="confetti">🎉 🎂 🎈 💖 🎊</div>
+</section>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
