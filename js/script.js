@@ -88,7 +88,7 @@ function showSurprise() {
     const msg = document.getElementById("surprise");
     if (msg) {
         msg.innerHTML =
-            "Tomorrow I’m coming… and your surprise is going to be unforgettable 💖✨";
+            "Tomorrow I’m coming… and your surprise is going to be revealed!!💖✨";
         msg.classList.add("show");
     }
 }
